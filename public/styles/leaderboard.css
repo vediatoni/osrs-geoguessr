@@ -1,0 +1,67 @@
+body {
+  height: 100%;
+  background-color: #223176;
+  font-family: "Ramaraja", serif;
+  overflow-x: hidden;
+}
+
+.bg-image {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("/images/background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  color: white !important;
+}
+
+.bg-image > .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #223176;
+  opacity: 0.8;
+}
+
+.bg-image > .container {
+  position: relative;
+  z-index: 2;
+  background-color: #223176;
+  height: 100%;
+}
+
+.row > div {
+  color: white;
+  font-size: 1.4em;
+}
+
+@media (max-width: 768px) {
+  .row > div {
+    font-size: 1em;
+  }
+}
+
+button {
+  color: #000000 !important;
+  background-color: #ffbd59 !important;
+}
+
+button:hover {
+  background-color: #ffbd5981 !important;
+}
+
+@media (min-width: 768px) {
+  .score-container > .row {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .input-group {
+    width: 50%;
+  }
+}

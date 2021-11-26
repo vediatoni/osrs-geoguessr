@@ -1,0 +1,9 @@
+backup
+standalone-games/*/images
+standalone-games/*/styles
+local-only
+.deno_plugins
+public/images/locations/*
+public/images/osrs-tiles/*
+public/images/rs3-tiles/*
+

@@ -1,0 +1,9 @@
+
+standalone-games
+standalone-games
+local-only
+.deno_plugins
+backup
+public/images/locations
+public/images/tiles
+ecosystem.config.js

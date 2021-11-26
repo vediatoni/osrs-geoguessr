@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Best scores | RSLocator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Best scores that were achieved by all players on RSLocator. Can you find yours?">
+    <link href="https://fonts.googleapis.com/css2?family=Ramaraja&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/leaderboard.css">
+    <link rel="stylesheet" href="/styles/loader.css">
+    <script src="https://kit.fontawesome.com/99f76de533.js" crossorigin="anonymous"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175636988-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-175636988-1');
+    </script>
+
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script>
+        window.addEventListener("load", function () {
+            $(".loader-wrapper").fadeOut("slow")
+
+            $("#usernameButton").on("click", (e) => {
+                location.href = location.origin + "/scores/name/" + $("#usernameField").val();
+            })
+        })
+    </script>
+
+    <div class="loader-wrapper">
+        <div class="text-center cf">
+            <div class="span">
+                <div class="location_indicator"></div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-image">
+        <div class="overlay"> </div>
+        <div class="container">
+            <div class="text-center pt-4">
+                <a href="/">
+                    <img class="img-fluid" src="/images/logo.png" width="180" alt="RSLocator logo">
+                </a>
+
+                <h1 class="pt-2"><%= gameMode %> SCOREBOARD</h1>
+            </div>
+
+            <div class="container pt-3 score-container">
+                <div class="input-group mb-5 mx-auto">
+                    <input type="text" id="usernameField" class="form-control" placeholder="Username">
+                    <div class="input-group-append">
+                        <button id="usernameButton" class="btn" type="button">Search</button>
+                    </div>
+                </div>
+
+                <div class="row" style="border-bottom: white 2px solid;">
+                    <div class="col-2 text-right" style="border-right: white 2px solid;">
+                        N.
+                    </div>
+                    <div class="col-4 text-left">
+                        NAME
+                    </div>
+                    <div class="col-3 text-right" style="border-right: white 2px solid;">
+                        POINTS
+                    </div>
+                    <div class="col-3 text-left">
+                        DATE
+                    </div>
+                </div>
+
+                <% var jsonScores = scores; for(var i = 0; i < jsonScores.length; i++){ %>
+                <div class="row">
+                    <div class="col-2 text-right" style="border-right: white 2px solid;">
+                        <%= i+1 + "." %>
+                    </div>
+                    <div class="col-4 text-left">
+                        <%= jsonScores[i].name %>
+                    </div>
+                    <div class="col-3 text-right" style="border-right: white 2px solid;">
+                        <%= jsonScores[i].score %>
+                    </div>
+                    <div class="col-3 text-left">
+                        <% var g = new Date(jsonScores[i].date) %>
+                        <% var goodFormat = `${g.getDate()}/${g.getMonth() + 1}/${g.getFullYear()}` %>
+                        <%= goodFormat %>
+                    </div>
+                </div>
+                <% }; %>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

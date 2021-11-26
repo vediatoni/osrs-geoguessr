@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>RSLocator | How much Gielinor do you really know?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="How many locations in the world of Gielinor do you know? Test your runescape game-knowledge and pinpoint all the locations on the map in a game of RSLocator. Inspired by geoguessr">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ramaraja">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="cookie/jquery.cookieBar.css">
+
+    <link rel="stylesheet" href="styles/loader.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175636988-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-175636988-1');
+    </script>
+
+</head>
+
+<body>
+    <div class="loader-wrapper">
+        <div class="text-center cf">
+            <div class="span">
+                <div class="location_indicator"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-100" id="cookiePlace"></div>
+
+    <body style="background: rgb(33,46,113);">
+        <section id="hero">
+            <div id="jumbotron" style="padding-bottom: 0px;padding-top: 30px;">
+                <div class="jumbotron"
+                    style="text-align: center;background: rgba(0,0,0,0);padding-bottom: 14px;padding-top: 20px;margin: 0px;margin-top: 0px;margin-bottom: 0px;margin-left: 0px;margin-right: 0px;border-radius: 23px;border: 6px none #ffbd59;">
+                    <img class="img-fluid" src="/images/logo.png" style="width: 306px;padding-bottom: 9px;">
+                    <h2 style="color: #ffde59;font-family: Ramaraja, serif;">How much Gielinor do you know?<br></h2>
+                </div>
+            </div>
+            <div class="container" style="padding-bottom: 19px;padding-top: 33px;">
+                <div class="row row-cols-3 text-center" style="margin: 0px;padding-bottom: 15px;">
+                    <div class="col-12 col-md-5 offset-1 mx-auto game-column">
+                        <h1 class="game-column-header"
+                            style="color: rgb(232,232,232);text-align: center;padding-top: 7px;">Easy</h1>
+                        <hr style="border-color: rgb(255,222,89);">
+                        <p style="color: rgb(247,248,222);"><strong>A easy game of RSLocator!</strong>&nbsp;</p>
+                        <p style="color: rgb(247,248,222);">Get assigned 10 random images of mostly-known places in
+                            Gielinor and try to pinpoint their exact location on the map!</p>
+                        <div class="btn-group game-btn-group" role="group" style="padding-bottom: 15px;"><button
+                                class="btn btn-primary" type="button" onclick="redirectOnClick('/game/easy')"
+                                style="margin-right: 14px;padding-left: 0px;padding-bottom: 0px;padding-top: 5px;font-family: Ramaraja, serif;font-size: 21px;color: #303030;background: #ffbd59;border-radius: 7px;">Play</button>
+                            <button class="btn btn-primary" type="button" onclick="redirectOnClick('/scores/easy')"
+                                style="text-align: center;margin-left: 14px;padding-left: 0px;background: rgb(255,255,255);color: #303030;font-family: Ramaraja, serif;padding-top: 5px;font-size: 21px;padding-bottom: 0px;border-radius: 7px;">Scores</button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-5 offset-1 mx-auto game-column">
+                        <h1 class="game-column-header"
+                            style="color: rgb(232,232,232);text-align: center;padding-top: 7px;">Hard</h1>
+                        <hr style="border-color: rgb(255,222,89);">
+                        <p style="color: rgb(247,248,222);"><strong>A hard game of RSLocator!</strong>&nbsp;</p>
+                        <p style="color: rgb(247,248,222);">Get assigned 10 random images of super random places in
+                            Gielinor and try to pinpoint their exact location on the map!</p>
+                        <div class="btn-group game-btn-group" role="group" style="padding-bottom: 15px;"><a
+                                class="btn btn-primary" type="button"
+                                style="margin-right: 14px;padding-left: 0px;padding-bottom: 0px;padding-top: 5px;font-family: Ramaraja, serif;font-size: 21px;color: #303030;background: #ffbd59;border-radius: 7px;">COMING
+                                SOON</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-cols-3 text-center" style="margin: 0px;padding-bottom: 15px;">
+                    <div class="col-12 col-md-5 offset-1 mx-auto game-column">
+                        <h1 class="game-column-header"
+                            style="color: rgb(232,232,232);text-align: center;padding-top: 7px;">Free to play</h1>
+                        <hr style="border-color: rgb(255,222,89);">
+                        <p style="color: rgb(247,248,222);"><strong>A game of RSLocator with only F2P
+                                locations!</strong>&nbsp;</p>
+                        <p style="color: rgb(247,248,222);">Get assigned 10 random images of only free to play places in
+                            Gielinor and try to pinpoint their exact location on the map!</p>
+                        <div class="btn-group game-btn-group" role="group" style="padding-bottom: 15px;"><a
+                                class="btn btn-primary" type="button"
+                                style="margin-right: 14px;padding-left: 0px;padding-bottom: 0px;padding-top: 5px;font-family: Ramaraja, serif;font-size: 21px;color: #303030;background: #ffbd59;border-radius: 7px;">COMING
+                                SOON</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-5 offset-1 mx-auto game-column">
+                        <h1 class="game-column-header"
+                            style="color: rgb(232,232,232);text-align: center;padding-top: 7px;">Runescape 3</h1>
+                        <hr style="border-color: rgb(255,222,89);">
+                        <p style="color: rgb(247,248,222);"><strong>A game of RSLocator with RS3
+                                locations!</strong>&nbsp;</p>
+                        <p style="color: rgb(247,248,222);">Get assigned 10 random images of random places in RS3
+                            Gielinor and try to pinpoint their exact location on the map!</p>
+                        <div class="btn-group game-btn-group" role="group" style="padding-bottom: 15px;"><a
+                                class="btn btn-primary" type="button"
+                                style="margin-right: 14px;padding-left: 0px;padding-bottom: 0px;padding-top: 5px;font-family: Ramaraja, serif;font-size: 21px;color: #303030;background: #ffbd59;border-radius: 7px;">COMING
+                                SOON</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer style="text-align: center;color: rgb(255,255,255);padding-top: 51px;">
+                <p class="copyright" style="color: rgb(221,221,221);">Made by Fat Rich&nbsp;<a
+                        href="https://www.youtube.com/channel/UC_zjMFPmW6erCbLRbKjm_Kg"
+                        style="font-size: 22px;color: rgb(225,225,225);"><i class="fab fa-youtube"
+                            style="font-size: 20px;padding-right: 2px;padding-left: 2px;"></i></a><a
+                        href="mailto:fatrichosrs@gmail.com" style="font-size: 22px;color: rgb(225,225,225);"><i
+                            class="fas fa-envelope"
+                            style="font-size: 20px;padding-right: 2px;padding-left: 2px;"></i></a><a
+                        href="https://discord.com/invite/uJ7xsrw" style="font-size: 22px;color: rgb(225,225,225);"
+                        target="_blank"><i class="fab fa-discord"
+                            style="font-size: 18px;padding-right: 2px;padding-left: 2px;"></i></a><a
+                        href="https://www.reddit.com/r/rslocator/" style="font-size: 22px;color: rgb(225,225,225);"
+                        target="_blank"><i class="fab fa-reddit-square"
+                            style="font-size: 20px;padding-right: 2px;padding-left: 2px;"></i></a></p>
+                <p class="copyright"
+                    style="width: 100%;padding-right: 10px;padding-left: 10px;color: rgb(221,221,221);">Jagex holds the
+                    Runescape trademark. Inspired by <a href="https://www.geoguessr.com/">geoguessr&nbsp;</a></p>
+            </footer>
+        </section>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+        <script src="cookie/jquery.cookieBar.js"></script>
+        <script>
+            window.onload = () => {
+                $(".loader-wrapper").fadeOut("slow")
+                $.cookieBar({
+                    wrapper: '#cookiePlace'
+                });
+            }
+
+            function redirectOnClick(link) {
+                location.href = link;
+            }
+        </script>
+    </body>
+
+
+</body>
+
+</html>

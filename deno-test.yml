@@ -1,0 +1,43 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+name: Deno Test
+
+pool:
+  name: Default
+
+jobs: 
+- job: DenoTest
+  steps:
+  - script: deno cache --unstable deps.ts
+    displayName: Caching Dependencies
+  - script: deno test -A --unstable
+    displayName: Run tests
+
+- job: PositiveTelegram
+  pool: server
+  dependsOn: DenoTest
+  condition: succeeded()
+  steps: 
+  - task: InvokeRESTAPI@1
+    inputs:
+      connectionType: 'connectedServiceName'
+      serviceConnection: 'Telegram-API'
+      method: 'GET'
+      urlSuffix: 'bot$(TELEGRAM_TOKEN)/sendMessage?chat_id=$(TELEGRAM_TO)&text=%3Cb%3ESuccessfully%3C%2Fb%3E+built+RSLocator+on%20%3Cb%3E$(Build.SourceBranchName)%20branch%3C%2Fb%3E+😃✅&parse_mode=HTML'
+      waitForCompletion: 'false'
+
+- job: NegativeTelegram
+  pool: server
+  dependsOn: DenoTest
+  condition: failed()
+  steps: 
+  - task: InvokeRESTAPI@1
+    inputs:
+      connectionType: 'connectedServiceName'
+      serviceConnection: 'Telegram-API'
+      method: 'GET'
+      urlSuffix: 'bot$(TELEGRAM_TOKEN)/sendMessage?chat_id=$(TELEGRAM_TO)&text=%3Cb%3EFailed%3C%2Fb%3E+to+build+RSLocator+on%20%3Cb%3E$(Build.SourceBranchName)%20branch%3C%2Fb%3E+😟❌&parse_mode=HTML'
+      waitForCompletion: 'false'
